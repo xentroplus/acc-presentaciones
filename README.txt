@@ -1,17 +1,19 @@
-AC&C - Presentaciones Institucionales PWA V1.4
+AC&C - Presentaciones Institucionales PWA V1.5
 
-NOVEDADES V1.4
-- Se muestra la versión visible en la pantalla de ingreso y en la barra superior.
-- Se refuerza la visibilidad de los botones “Limpiar” y “Salir”.
-- Se mantiene la corrección de imágenes para PDF de la V1.3.
-- Caché actualizado a v1.4.0 para forzar la actualización de la PWA.
+CORRECCIÓN PRINCIPAL V1.5
+- Se corrige la generación PDF desde celular que producía 8 páginas.
+- Cada página se fuerza a A4 con 296 mm de alto para evitar saltos por redondeo del motor móvil.
+- Se evita que el pie de página se divida o pase a una página adicional.
+- El logo del pie se mueve hacia adentro y reduce ligeramente su tamaño para evitar cortes.
+- Se mantiene el documento final en 4 páginas.
+- Versión visible: V1.5.
+- Caché PWA: v1.5.0.
 
 CLAVE DE INGRESO
 Acc+2026
 
-IMPORTANTE PARA ACTUALIZAR
-1. Reemplace en GitHub los archivos de la versión anterior por estos.
-2. Espere a que GitHub Pages termine de publicar.
-3. Abra primero la URL web y confirme que aparezca “V1.4”.
-4. Luego cierre completamente la PWA instalada y vuelva a abrirla.
-5. Si sigue mostrando una versión anterior, elimine la PWA e instálela nuevamente.
+DESPUÉS DE PUBLICAR
+1. Espere a que GitHub Pages termine de desplegar.
+2. Abra la URL web y confirme V1.5.
+3. Cierre completamente la PWA instalada en el celular.
+4. Vuelva a abrirla y confirme V1.5 antes de probar el PDF.

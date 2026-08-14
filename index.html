@@ -26,7 +26,7 @@
     .top-btn{border:1px solid #ffffff40;background:#ffffff12;color:white;border-radius:9px;padding:9px 12px;font-weight:700;cursor:pointer}
     .top-btn:hover{background:#ffffff20}
     .top-btn-danger{border-color:#fecaca55}
-    .version-badge{margin-left:8px;background:#0ea5e9;color:white;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:800;letter-spacing:.03em}
+    .version-badge{margin-left:10px;background:#0ea5e9!important;color:#fff!important;border:1px solid #7dd3fc;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:900;letter-spacing:.04em;display:inline-block!important}
     .login-version{display:inline-block;margin-top:4px;background:#eef7fc;color:#0f6f95;border:1px solid #cfe9f6;border-radius:999px;padding:4px 9px;font-size:11px;font-weight:800}
     .wrap{max-width:1050px;margin:0 auto;padding:22px}
     .card{background:white;border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 6px 22px #1118270d;margin-bottom:18px}
@@ -65,7 +65,7 @@
     .doc-header img{position:absolute;left:6mm;top:7mm;width:14mm;height:14mm;object-fit:contain}
     .doc-header:after{content:"";position:absolute;left:18mm;top:23mm;width:112mm;border-top:1px solid #9ccbea;transform:rotate(-5deg);transform-origin:left center}
     .doc-footer{position:absolute;left:0;right:0;bottom:0;height:24mm;color:#5f6368;text-align:center;font-size:7pt;padding:10mm 26mm 0 14mm;line-height:1.25}
-    .doc-footer img{position:absolute;right:9mm;bottom:4mm;width:13mm;height:13mm;object-fit:contain}
+    .doc-footer img{position:absolute;right:9mm;bottom:6mm;width:11mm;height:11mm;object-fit:contain}
     .doc-footer:before{content:"";position:absolute;left:14mm;right:32mm;top:5.5mm;border-top:1px solid #8abce0;transform:rotate(2deg);transform-origin:left center}
     .letter{font-family:Georgia,'Times New Roman',serif;font-size:11pt;line-height:1.28}
     .letter p{margin:0 0 4.5mm}.letter .recipient{margin-bottom:6mm;line-height:1.15}.letter .subject{font-weight:bold;margin:5mm 0}.signature{margin-top:8mm}.signature .sig-name{display:block;margin-top:15mm}.signature .sig-role{display:block;margin-top:9mm}
@@ -94,27 +94,78 @@
       .preview-wrap{padding:8px}.pdf-doc{transform-origin:top left}
     }
     #printHost{display:none}
-    @page{size:A4;margin:0}
+    @page{size:A4 portrait;margin:0}
     @media print{
+      html,body{margin:0!important;padding:0!important;width:210mm!important;background:#fff!important}
       body.printing > *:not(#printHost){display:none!important}
-      body.printing #printHost{display:block!important}
-      body{background:white;margin:0}
-      .pdf-doc{width:210mm;margin:0}
-      .pdf-page{box-shadow:none;margin:0;page-break-after:always;break-after:page}
-      .pdf-page:last-child{page-break-after:auto;break-after:auto}
-      .template-visual .visual-only{display:block!important}
-      .photo-band{background:#fff!important}
-      .photo-band:after{display:none!important}
-      .photo-band img{display:block!important;visibility:visible!important;opacity:1!important;filter:none!important;mix-blend-mode:normal!important}
-      .photo-band img,.doc-header img,.doc-footer img{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-      *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      body.printing #printHost{
+        display:block!important;
+        width:210mm!important;
+        margin:0!important;
+        padding:0!important;
+      }
+      #printHost .pdf-doc{
+        width:210mm!important;
+        margin:0!important;
+        padding:0!important;
+        transform:none!important;
+      }
+      #printHost .pdf-page{
+        box-sizing:border-box!important;
+        width:210mm!important;
+        height:296mm!important;
+        min-height:296mm!important;
+        max-height:296mm!important;
+        margin:0!important;
+        overflow:hidden!important;
+        position:relative!important;
+        page-break-inside:avoid!important;
+        break-inside:avoid-page!important;
+        page-break-after:always!important;
+        break-after:page!important;
+        box-shadow:none!important;
+      }
+      #printHost .pdf-page:last-child{
+        page-break-after:auto!important;
+        break-after:auto!important;
+      }
+      #printHost .doc-footer{
+        bottom:2mm!important;
+        height:22mm!important;
+      }
+      #printHost .doc-footer img{
+        right:9mm!important;
+        bottom:5mm!important;
+        width:10.5mm!important;
+        height:10.5mm!important;
+      }
+      #printHost .template-visual .visual-only{display:block!important}
+      #printHost .photo-band{background:#fff!important}
+      #printHost .photo-band:after{display:none!important}
+      #printHost .photo-band img{
+        display:block!important;
+        visibility:visible!important;
+        opacity:1!important;
+        filter:none!important;
+        mix-blend-mode:normal!important;
+      }
+      #printHost .photo-band img,
+      #printHost .doc-header img,
+      #printHost .doc-footer img{
+        -webkit-print-color-adjust:exact!important;
+        print-color-adjust:exact!important;
+      }
+      #printHost *{
+        -webkit-print-color-adjust:exact!important;
+        print-color-adjust:exact!important;
+      }
     }
   </style>
 </head>
 <body>
 <div id="loginView" class="login-shell">
   <div class="login">
-    <div class="brand"><img src="assets/logo-acc.jpg" alt="AC&C"><div><h2>Presentaciones Institucionales</h2><p>Herramienta interna AC&C</p><div class="login-version">Versión 1.4</div></div></div>
+    <div class="brand"><img src="assets/logo-acc.jpg" alt="AC&C"><div><h2>Presentaciones Institucionales</h2><p>Herramienta interna AC&C</p><div class="login-version">Versión 1.5</div></div></div>
     <label for="password"><strong>Clave de acceso</strong></label>
     <input id="password" type="password" autocomplete="current-password" placeholder="Ingrese la clave">
     <div id="loginError" class="error"></div>
@@ -125,7 +176,7 @@
 <div id="appView" class="app hidden">
   <header class="topbar">
     <img src="assets/logo-acc.jpg" alt="AC&C">
-    <div><h1>Generador de Presentaciones Institucionales</h1><small>AC&C · Carta + Portafolio General</small></div><span id="versionBadge" class="version-badge">V1.4</span>
+    <div><h1>Generador de Presentaciones Institucionales</h1><small>AC&C · Carta + Portafolio General</small></div><span id="versionBadge" class="version-badge">V1.5</span>
     <div class="top-actions">
       <button id="clearBtn" class="top-btn">Limpiar</button>
       <button id="logoutBtn" class="top-btn top-btn-danger">Salir</button>
