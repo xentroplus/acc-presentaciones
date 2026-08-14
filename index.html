@@ -59,31 +59,32 @@
     .pdf-doc{width:210mm;margin:auto}
     .pdf-page{
       width:210mm;height:297mm;background:white;position:relative;overflow:hidden;
-      padding:31mm 20mm 27mm 24mm;page-break-after:always;color:#171717;
+      padding:29mm 20mm 32mm 24mm;page-break-after:always;color:#171717;
     }
+    .pdf-page > *:not(.doc-header):not(.doc-footer){position:relative;z-index:1}
     .doc-header{position:absolute;left:0;right:0;top:0;height:27mm}
     .doc-header img{position:absolute;left:6mm;top:7mm;width:14mm;height:14mm;object-fit:contain}
     .doc-header:after{content:"";position:absolute;left:18mm;top:23mm;width:112mm;border-top:1px solid #9ccbea;transform:rotate(-5deg);transform-origin:left center}
-    .doc-footer{position:absolute;left:0;right:0;bottom:0;height:24mm;color:#5f6368;text-align:center;font-size:7pt;padding:10mm 26mm 0 14mm;line-height:1.25}
-    .doc-footer img{position:absolute;right:9mm;bottom:6mm;width:11mm;height:11mm;object-fit:contain}
-    .doc-footer:before{content:"";position:absolute;left:14mm;right:32mm;top:5.5mm;border-top:1px solid #8abce0;transform:rotate(2deg);transform-origin:left center}
-    .letter{font-family:Georgia,'Times New Roman',serif;font-size:11pt;line-height:1.28}
-    .letter p{margin:0 0 4.5mm}.letter .recipient{margin-bottom:6mm;line-height:1.15}.letter .subject{font-weight:bold;margin:5mm 0}.signature{margin-top:8mm}.signature .sig-name{display:block;margin-top:15mm}.signature .sig-role{display:block;margin-top:9mm}
+    .doc-footer{position:absolute;left:0;right:0;bottom:0;height:22mm;color:#5f6368;text-align:center;font-size:6.4pt;padding:9mm 27mm 0 14mm;line-height:1.18;background:#fff}
+    .doc-footer img{position:absolute;right:9mm;bottom:5mm;width:10mm;height:10mm;object-fit:contain}
+    .doc-footer:before{content:"";position:absolute;left:14mm;right:32mm;top:4mm;border-top:1px solid #8abce0;transform:rotate(1deg);transform-origin:left center}
+    .letter{font-family:Georgia,'Times New Roman',serif;font-size:10.2pt;line-height:1.20}
+    .letter p{margin:0 0 3.2mm}.letter .recipient{margin-bottom:4.5mm;line-height:1.12}.letter .subject{font-weight:bold;margin:4mm 0}.signature{margin-top:5mm}.signature .sig-name{display:block;margin-top:11mm}.signature .sig-role{display:block;margin-top:3mm}
     .section-title{font-size:20pt;font-weight:800;letter-spacing:.04em;margin:0 0 8mm;color:#111827}
-    .intro{font-size:11.2pt;line-height:1.55;color:#313843;margin-bottom:7mm}
+    .intro{font-size:10.6pt;line-height:1.42;color:#313843;margin-bottom:5mm}
     .accent{color:#129ed1}
-    .hero-card{border-radius:8px;padding:7mm;background:linear-gradient(135deg,#eff8fc,#fff);border:1px solid #d5e8f3;margin-bottom:7mm}
-    .pillars{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
-    .pillar{border:1px solid #dde5ea;border-radius:7px;padding:5mm;min-height:37mm;background:#fff;position:relative}
+    .hero-card{border-radius:8px;padding:5.5mm;background:linear-gradient(135deg,#eff8fc,#fff);border:1px solid #d5e8f3;margin-bottom:7mm}
+    .pillars{display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+    .pillar{border:1px solid #dde5ea;border-radius:7px;padding:4mm;min-height:31mm;background:#fff;position:relative}
     .pillar .num{font-size:22pt;color:#d6ebf6;font-weight:900;position:absolute;right:4mm;top:2mm}.pillar h3{margin:0 0 2mm;font-size:11.5pt}.pillar p{font-size:9.5pt;line-height:1.45;margin:0;color:#4b5563}
-    .service{display:grid;grid-template-columns:17mm 1fr;gap:4mm;padding:5mm 0;border-bottom:1px solid #e3e8ed}.service:last-child{border:0}
+    .service{display:grid;grid-template-columns:16mm 1fr;gap:3.5mm;padding:4mm 0;border-bottom:1px solid #e3e8ed}.service:last-child{border:0}
     .service-badge{width:14mm;height:14mm;border-radius:50%;background:#e7f6fc;display:grid;place-items:center;font-weight:800;color:#118ab7;font-size:12pt}
-    .service h3{font-size:12.3pt;margin:0 0 2mm}.service ul{margin:0;padding-left:5mm;font-size:9.5pt;line-height:1.5;color:#374151}
-    .photo-band{height:47mm;border-radius:8px;overflow:hidden;margin:0 0 6mm;position:relative}
+    .service h3{font-size:11.6pt;margin:0 0 1.5mm}.service ul{margin:0;padding-left:5mm;font-size:9.1pt;line-height:1.38;color:#374151}
+    .photo-band{height:40mm;border-radius:8px;overflow:hidden;margin:0 0 6mm;position:relative}
     .photo-band img{width:100%;height:100%;object-fit:cover;display:block}.photo-band:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#11182755,transparent)}
-    .diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-bottom:7mm}
-    .diff{padding:5mm;border-radius:7px;border:1px solid #dfe6eb;background:#fff}.diff h3{font-size:10.7pt;margin:0 0 2mm}.diff p{font-size:9.2pt;line-height:1.45;color:#4b5563;margin:0}
-    .contact-box{background:#111827;color:white;padding:7mm;border-radius:8px;display:grid;grid-template-columns:1.15fr .85fr;gap:6mm;align-items:center}.contact-box h2{margin:0 0 2mm;font-size:16pt}.contact-box p{margin:0;font-size:9.5pt;line-height:1.55}.contact-data{text-align:right;font-size:9pt;line-height:1.55}
+    .diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-bottom:5mm}
+    .diff{padding:4mm;border-radius:7px;border:1px solid #dfe6eb;background:#fff}.diff h3{font-size:10.7pt;margin:0 0 2mm}.diff p{font-size:9.2pt;line-height:1.45;color:#4b5563;margin:0}
+    .contact-box{background:#111827;color:white;padding:6mm;border-radius:8px;display:grid;grid-template-columns:1.15fr .85fr;gap:6mm;align-items:center}.contact-box h2{margin:0 0 2mm;font-size:16pt}.contact-box p{margin:0;font-size:9.5pt;line-height:1.55}.contact-data{text-align:right;font-size:9pt;line-height:1.55}
     .visual-only{display:none}
     .template-visual .visual-only{display:block!important}
     .template-visual .visual-hide{display:none}
@@ -165,7 +166,7 @@
 <body>
 <div id="loginView" class="login-shell">
   <div class="login">
-    <div class="brand"><img src="assets/logo-acc.jpg" alt="AC&C"><div><h2>Presentaciones Institucionales</h2><p>Herramienta interna AC&C</p><div class="login-version">Versión 1.6</div></div></div>
+    <div class="brand"><img src="assets/logo-acc.jpg" alt="AC&C"><div><h2>Presentaciones Institucionales</h2><p>Herramienta interna AC&C</p><div class="login-version">Versión 1.7</div></div></div>
     <label for="password"><strong>Clave de acceso</strong></label>
     <input id="password" type="password" autocomplete="current-password" placeholder="Ingrese la clave">
     <div id="loginError" class="error"></div>
@@ -176,7 +177,7 @@
 <div id="appView" class="app hidden">
   <header class="topbar">
     <img src="assets/logo-acc.jpg" alt="AC&C">
-    <div><h1>Generador de Presentaciones Institucionales</h1><small>AC&C · Carta + Portafolio General</small></div><span id="versionBadge" class="version-badge">V1.6</span>
+    <div><h1>Generador de Presentaciones Institucionales</h1><small>AC&C · Carta + Portafolio General</small></div><span id="versionBadge" class="version-badge">V1.7</span>
     <div class="top-actions">
       <button id="clearBtn" class="top-btn">Limpiar</button>
       <button id="logoutBtn" class="top-btn top-btn-danger">Salir</button>
@@ -271,7 +272,7 @@
     <div class="doc-header"><img src="assets/logo-acc.jpg"></div>
     <div class="doc-footer"><img src="assets/logo-acc.jpg">AC&C Cía. Ltda. | Asesoría, Consultoría y Capacitación<br>República del Salvador N34-140 entre Moscú y Suiza · Ed. Diamond Business · Piso 5 · Oficina 7 · Quito, Ecuador<br>(+593) 99 490 9231 · (+593) 98 744 2576 · info@acclatam.lat · www.acclatam.lat</div>
     <h1 class="section-title">NUESTROS <span class="accent">SERVICIOS</span></h1>
-    <div class="photo-band visual-only" style="height:42mm"><img src="assets/consultoria-datos-print.jpg" alt="" loading="eager"></div>
+    <div class="photo-band visual-only" style="height:36mm"><img src="assets/consultoria-datos-print.jpg" alt="" loading="eager"></div>
     <div class="service"><div class="service-badge">01</div><div><h3>Consultoría y Asesoría Empresarial</h3><ul><li>Desarrollo de liderazgo y cultura organizacional.</li><li>Estrategia empresarial y optimización de procesos.</li><li>Evaluaciones de desempeño y diagnóstico organizacional.</li><li>Diseño de soluciones adaptadas a las necesidades de cada organización.</li></ul></div></div>
     <div class="service"><div class="service-badge">02</div><div><h3>Capacitación y Desarrollo</h3><ul><li>Programas de capacitación y desarrollo profesional.</li><li>Entrenamientos personalizados para organizaciones.</li><li>Talleres de liderazgo, comunicación y desarrollo profesional.</li><li>Implementación de estrategias de formación continua.</li></ul></div></div>
     <div class="service"><div class="service-badge">03</div><div><h3>Tecnología e Inteligencia Artificial</h3><ul><li>Automatización y optimización de procesos.</li><li>Aplicación de inteligencia artificial en entornos organizacionales.</li><li>Análisis de datos como apoyo a la toma de decisiones.</li><li>Desarrollo de soluciones tecnológicas adaptadas a las necesidades de cada organización.</li><li>Seguridad informática y ciberseguridad.</li></ul></div></div>
@@ -287,7 +288,7 @@
       <div class="diff"><h3>INNOVACIÓN Y TECNOLOGÍA</h3><p>Incorporamos metodologías, herramientas digitales e inteligencia artificial para contribuir a la transformación y mejora continua de las organizaciones.</p></div>
       <div class="diff"><h3>CAPACITACIÓN ESPECIALIZADA</h3><p>Desarrollamos programas y entrenamientos orientados a fortalecer conocimientos, habilidades y competencias profesionales.</p></div>
     </div>
-    <div class="photo-band visual-only" style="height:48mm"><img src="assets/equipo-corporativo-print.jpg" alt="" loading="eager"></div>
+    <div class="photo-band visual-only" style="height:40mm"><img src="assets/equipo-corporativo-print.jpg" alt="" loading="eager"></div>
     <div class="contact-box"><div><h2>CONVERSEMOS</h2><p>Estamos preparados para conocer las necesidades de su organización e identificar oportunidades en las que podamos contribuir a su desarrollo.</p></div><div class="contact-data"><strong>AC&C Cía. Ltda.</strong><br>Asesoría, Consultoría y Capacitación<br><br>www.acclatam.lat<br>info@acclatam.lat<br>(+593) 99 490 9231<br>(+593) 98 744 2576</div></div>
   </section>
 </div>
