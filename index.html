@@ -165,7 +165,7 @@
 <body>
 <div id="loginView" class="login-shell">
   <div class="login">
-    <div class="brand"><img src="assets/logo-acc.jpg" alt="AC&C"><div><h2>Presentaciones Institucionales</h2><p>Herramienta interna AC&C</p><div class="login-version">Versión 1.5</div></div></div>
+    <div class="brand"><img src="assets/logo-acc.jpg" alt="AC&C"><div><h2>Presentaciones Institucionales</h2><p>Herramienta interna AC&C</p><div class="login-version">Versión 1.6</div></div></div>
     <label for="password"><strong>Clave de acceso</strong></label>
     <input id="password" type="password" autocomplete="current-password" placeholder="Ingrese la clave">
     <div id="loginError" class="error"></div>
@@ -176,7 +176,7 @@
 <div id="appView" class="app hidden">
   <header class="topbar">
     <img src="assets/logo-acc.jpg" alt="AC&C">
-    <div><h1>Generador de Presentaciones Institucionales</h1><small>AC&C · Carta + Portafolio General</small></div><span id="versionBadge" class="version-badge">V1.5</span>
+    <div><h1>Generador de Presentaciones Institucionales</h1><small>AC&C · Carta + Portafolio General</small></div><span id="versionBadge" class="version-badge">V1.6</span>
     <div class="top-actions">
       <button id="clearBtn" class="top-btn">Limpiar</button>
       <button id="logoutBtn" class="top-btn top-btn-danger">Salir</button>
@@ -293,6 +293,8 @@
 </div>
 </template>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
   const ACCESS_KEY = "Acc+2026";
   const $ = s => document.querySelector(s);
@@ -379,28 +381,75 @@
 
   async function generatePDF(){
     const root=buildDoc(); if(!root)return;
+    if(typeof html2canvas==="undefined" || !window.jspdf || !window.jspdf.jsPDF){
+      $("#status").textContent="No se cargó el generador PDF. Verifique su conexión a internet y vuelva a intentar.";
+      return;
+    }
+
     const v=values();
-    const titleBefore=document.title;
     const safe=(v.org||"Organizacion").replace(/[^\p{L}\p{N}]+/gu,"_").replace(/^_+|_+$/g,"");
-    document.title=`Presentacion_ACC_${safe}_${v.date}`;
-    const printHost=document.createElement("div");
-    printHost.id="printHost";
-    printHost.appendChild(root);
-    document.body.appendChild(printHost);
-    document.body.classList.add("printing");
-    $("#status").textContent="Preparando imágenes y documento…";
+    const filename=`Presentacion_ACC_${safe}_${v.date}.pdf`;
+
+    const holder=document.createElement("div");
+    holder.style.position="fixed";
+    holder.style.left="-10000px";
+    holder.style.top="0";
+    holder.style.width="210mm";
+    holder.style.background="#fff";
+    holder.style.zIndex="-1";
+    holder.appendChild(root);
+    document.body.appendChild(holder);
+
     try{
+      $("#status").textContent="Preparando documento e imágenes…";
       await waitForImages(root);
-      await new Promise(r=>setTimeout(r,350));
-      $("#status").textContent="Se abrirá la ventana de impresión. Seleccione “Guardar como PDF”.";
-      window.print();
-    } finally {
-      setTimeout(()=>{
-        printHost.remove();
-        document.body.classList.remove("printing");
-        document.title=titleBefore;
-        $("#status").textContent="Documento listo. Si canceló, puede generarlo nuevamente.";
-      },700);
+      await new Promise(r=>setTimeout(r,250));
+
+      const pages=[...root.querySelectorAll(".pdf-page")];
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF({orientation:"portrait",unit:"mm",format:"a4",compress:true});
+
+      const mobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+      const renderScale = mobile ? 1.25 : 1.6;
+
+      for(let i=0;i<pages.length;i++){
+        $("#status").textContent=`Generando página ${i+1} de ${pages.length}…`;
+
+        const page=pages[i];
+        page.style.transform="none";
+        page.style.margin="0";
+        page.style.width="210mm";
+        page.style.height="297mm";
+        page.style.minHeight="297mm";
+        page.style.maxHeight="297mm";
+        page.style.overflow="hidden";
+
+        const canvas = await html2canvas(page,{
+          scale:renderScale,
+          useCORS:true,
+          allowTaint:false,
+          backgroundColor:"#ffffff",
+          logging:false,
+          imageTimeout:15000,
+          windowWidth:page.scrollWidth,
+          windowHeight:page.scrollHeight
+        });
+
+        const imgData=canvas.toDataURL("image/jpeg",0.92);
+        if(i>0) pdf.addPage("a4","portrait");
+        pdf.addImage(imgData,"JPEG",0,0,210,297,undefined,"FAST");
+
+        canvas.width=1;
+        canvas.height=1;
+      }
+
+      pdf.save(filename);
+      $("#status").textContent=`PDF generado correctamente: ${pages.length} páginas.`;
+    }catch(err){
+      console.error(err);
+      $("#status").textContent="No fue posible generar el PDF. Cierre y vuelva a abrir la PWA e intente nuevamente.";
+    }finally{
+      holder.remove();
     }
   }
   $("#pdfBtn").addEventListener("click",generatePDF);

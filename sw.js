@@ -1,4 +1,4 @@
-const CACHE="acc-presentaciones-v1.5.0";
+const CACHE="acc-presentaciones-v1.6.0";
 const FILES=["./","./index.html","./manifest.json",
 "./assets/logo-acc.jpg","./assets/equipo-corporativo.jpeg","./assets/consultoria-datos.jpg",
 "./assets/icon-192.png","./assets/icon-512.png","./assets/apple-touch-icon.png","./assets/consultoria-datos-print.jpg","./assets/equipo-corporativo-print.jpg"];

@@ -1,19 +1,17 @@
-AC&C - Presentaciones Institucionales PWA V1.5
+AC&C - Presentaciones Institucionales PWA V1.6
 
-CORRECCIÓN PRINCIPAL V1.5
-- Se corrige la generación PDF desde celular que producía 8 páginas.
-- Cada página se fuerza a A4 con 296 mm de alto para evitar saltos por redondeo del motor móvil.
-- Se evita que el pie de página se divida o pase a una página adicional.
-- El logo del pie se mueve hacia adentro y reduce ligeramente su tamaño para evitar cortes.
-- Se mantiene el documento final en 4 páginas.
-- Versión visible: V1.5.
-- Caché PWA: v1.5.0.
+VERSIÓN DEFINITIVA DE GENERACIÓN PDF
+- El PDF se genera directamente dentro de la PWA.
+- Cada una de las 4 páginas se renderiza individualmente y se inserta como una página A4.
+- El resultado queda forzado a exactamente 4 páginas.
+- Se evita el problema de páginas en blanco y cortes de pie de página del navegador móvil.
+- Mantiene formato Institucional y Corporativo Visual.
+- Mantiene clave, calendario, firmantes, Limpiar, Salir e icono PWA.
+- Versión visible: V1.6.
+- Caché: v1.6.0.
 
-CLAVE DE INGRESO
+CLAVE
 Acc+2026
 
-DESPUÉS DE PUBLICAR
-1. Espere a que GitHub Pages termine de desplegar.
-2. Abra la URL web y confirme V1.5.
-3. Cierre completamente la PWA instalada en el celular.
-4. Vuelva a abrirla y confirme V1.5 antes de probar el PDF.
+NOTA
+La generación PDF utiliza html2canvas y jsPDF desde CDN, por lo que requiere conexión a internet al cargar la aplicación.
