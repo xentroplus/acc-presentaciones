@@ -22,10 +22,12 @@
     .topbar{background:#111827;color:white;padding:16px 20px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:20;box-shadow:0 2px 10px #0002}
     .topbar img{width:42px;height:42px;object-fit:contain;background:white;border-radius:4px}
     .topbar h1{font-size:17px;margin:0}.topbar small{opacity:.72}
-    .top-actions{margin-left:auto;display:flex;gap:8px}
+    .top-actions{margin-left:auto;display:flex!important;gap:8px;visibility:visible!important;opacity:1!important}
     .top-btn{border:1px solid #ffffff40;background:#ffffff12;color:white;border-radius:9px;padding:9px 12px;font-weight:700;cursor:pointer}
     .top-btn:hover{background:#ffffff20}
     .top-btn-danger{border-color:#fecaca55}
+    .version-badge{margin-left:8px;background:#0ea5e9;color:white;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:800;letter-spacing:.03em}
+    .login-version{display:inline-block;margin-top:4px;background:#eef7fc;color:#0f6f95;border:1px solid #cfe9f6;border-radius:999px;padding:4px 9px;font-size:11px;font-weight:800}
     .wrap{max-width:1050px;margin:0 auto;padding:22px}
     .card{background:white;border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 6px 22px #1118270d;margin-bottom:18px}
     .card h2{font-size:19px;margin:0 0 6px}.card p.note{color:var(--muted);font-size:13px;margin:0 0 18px}
@@ -112,7 +114,7 @@
 <body>
 <div id="loginView" class="login-shell">
   <div class="login">
-    <div class="brand"><img src="assets/logo-acc.jpg" alt="AC&C"><div><h2>Presentaciones Institucionales</h2><p>Herramienta interna AC&C</p></div></div>
+    <div class="brand"><img src="assets/logo-acc.jpg" alt="AC&C"><div><h2>Presentaciones Institucionales</h2><p>Herramienta interna AC&C</p><div class="login-version">Versión 1.4</div></div></div>
     <label for="password"><strong>Clave de acceso</strong></label>
     <input id="password" type="password" autocomplete="current-password" placeholder="Ingrese la clave">
     <div id="loginError" class="error"></div>
@@ -123,7 +125,7 @@
 <div id="appView" class="app hidden">
   <header class="topbar">
     <img src="assets/logo-acc.jpg" alt="AC&C">
-    <div><h1>Generador de Presentaciones Institucionales</h1><small>AC&C · Carta + Portafolio General</small></div>
+    <div><h1>Generador de Presentaciones Institucionales</h1><small>AC&C · Carta + Portafolio General</small></div><span id="versionBadge" class="version-badge">V1.4</span>
     <div class="top-actions">
       <button id="clearBtn" class="top-btn">Limpiar</button>
       <button id="logoutBtn" class="top-btn top-btn-danger">Salir</button>

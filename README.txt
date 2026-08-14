@@ -1,25 +1,17 @@
-AC&C - Presentaciones Institucionales PWA V1.3
+AC&C - Presentaciones Institucionales PWA V1.4
 
-NOVEDADES V1.3
-- Botón “Limpiar” con confirmación.
-- Botón “Salir” que regresa a la pantalla de clave.
-- Imágenes corporativas optimizadas específicamente para impresión/PDF.
-- Se eliminó el overlay visual durante impresión para evitar recuadros negros.
-- Se reforzó la espera de carga de imágenes antes de imprimir.
-- Mayor espacio para firma física o digital.
-- Líneas de encabezado y pie separadas del texto.
-- Caché actualizado a v1.3.0.
+NOVEDADES V1.4
+- Se muestra la versión visible en la pantalla de ingreso y en la barra superior.
+- Se refuerza la visibilidad de los botones “Limpiar” y “Salir”.
+- Se mantiene la corrección de imágenes para PDF de la V1.3.
+- Caché actualizado a v1.4.0 para forzar la actualización de la PWA.
 
 CLAVE DE INGRESO
 Acc+2026
 
-ARCHIVOS PARA GITHUB PAGES
-- index.html
-- manifest.json
-- sw.js
-- carpeta assets/
-
-IMPORTANTE
-Después de reemplazar los archivos en GitHub Pages, cierre completamente la PWA
-y vuelva a abrirla para que tome la nueva versión. Si el navegador mantiene una
-versión antigua, actualice la página una vez desde el enlace web.
+IMPORTANTE PARA ACTUALIZAR
+1. Reemplace en GitHub los archivos de la versión anterior por estos.
+2. Espere a que GitHub Pages termine de publicar.
+3. Abra primero la URL web y confirme que aparezca “V1.4”.
+4. Luego cierre completamente la PWA instalada y vuelva a abrirla.
+5. Si sigue mostrando una versión anterior, elimine la PWA e instálela nuevamente.
