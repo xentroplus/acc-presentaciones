@@ -1,11 +1,14 @@
-AC&C - Presentaciones Institucionales PWA V1.2
+AC&C - Presentaciones Institucionales PWA V1.3
 
-CORRECCIONES V1.1
-- Se espera a que todas las imágenes estén cargadas antes de abrir la generación PDF.
-- Se corrigió la posición de las líneas decorativas del encabezado y pie de página.
-- Se amplió el espacio destinado a firma física o digital.
-- Se mantiene la selección entre formato Institucional y Corporativo Visual.
-- Se actualizó el caché PWA para forzar la nueva versión.
+NOVEDADES V1.3
+- Botón “Limpiar” con confirmación.
+- Botón “Salir” que regresa a la pantalla de clave.
+- Imágenes corporativas optimizadas específicamente para impresión/PDF.
+- Se eliminó el overlay visual durante impresión para evitar recuadros negros.
+- Se reforzó la espera de carga de imágenes antes de imprimir.
+- Mayor espacio para firma física o digital.
+- Líneas de encabezado y pie separadas del texto.
+- Caché actualizado a v1.3.0.
 
 CLAVE DE INGRESO
 Acc+2026
@@ -17,9 +20,6 @@ ARCHIVOS PARA GITHUB PAGES
 - carpeta assets/
 
 IMPORTANTE
-Después de publicar esta versión en GitHub Pages, cierre completamente la PWA instalada
-y vuelva a abrirla para que tome la actualización del service worker.
-
-V1.2
-- Nuevo icono oficial para instalación de la PWA, basado en LogoWhatsappACC.
-- Incluye icono Apple Touch para iPhone/iPad.
+Después de reemplazar los archivos en GitHub Pages, cierre completamente la PWA
+y vuelva a abrirla para que tome la nueva versión. Si el navegador mantiene una
+versión antigua, actualice la página una vez desde el enlace web.
